@@ -8,5 +8,19 @@ body{
   box-sizing: border-box;
   height: 200vh;
   width: 100%;
-  /* font-family: 'Poppins', sans-serif; */
+  /* font-family: 'inter', sans-serif; */
+  background-color: #f4f4f2;
 }
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.element::-webkit-scrollbar {
+  width: 0 !important;
+}
+
+.alist{
+  @apply relative text-gray-900 font-medium text-sm ;
+}
+

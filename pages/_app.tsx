@@ -1,9 +1,9 @@
 import type { AppProps } from 'next/app'
 import "./globals.css"
-import {Poppins} from "@next/font/google"
+import {Inter} from "@next/font/google"
 
-const poppins = Poppins({
-  variable: "--font-poppins",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800"],
 })
@@ -11,7 +11,7 @@ const poppins = Poppins({
  
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <main className={poppins.variable}>
+    <main className={inter.variable}>
       <Component {...pageProps} />
     </main>
   )
