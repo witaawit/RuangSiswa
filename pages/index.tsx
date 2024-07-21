@@ -1,4 +1,4 @@
-import { Navbar, Hero, PilPaket } from "../components";
+import { Navbar, Hero, PilPaket, Ad, Testimoni, Footer } from "../components";
 
 export default function Page() {
   return (
@@ -6,6 +6,9 @@ export default function Page() {
       <Navbar/>    
       <Hero />
       <PilPaket />
+      <Ad />
+      <Testimoni />
+      <Footer />
     </>
   )
 };
