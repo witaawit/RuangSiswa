@@ -1,9 +1,9 @@
 import { BreadCrumbSMIP } from "../BreadCrumb";
 import { DropSelmapel } from "../Dropdown Select";
 import { Searchbar } from "../Search Bar";
-import { CardList } from "../Card Mapel";
+// import { CardList } from "../Card Mapel";
 
-const MapelSMAIPA = () => {
+const SMAIPABio = () => {
   return (
     <section className="pt-20">
       <BreadCrumbSMIP />
@@ -11,10 +11,9 @@ const MapelSMAIPA = () => {
         <DropSelmapel />
         <Searchbar />
       </div>
-      <CardList />
     </section>
   );
 };
 
-export { MapelSMAIPA };
+export { SMAIPABio };
 

@@ -38,7 +38,7 @@ const DropSel: React.FC<DropSelProps> = ({ items }) => {
       <DropdownTrigger>
         <Button
           // variant="solid"
-          className={`px-6 flex items-center py-3 rounded-full font-semibold text-xl overflow-clip outline-none ${
+          className={`z-0 px-6 flex items-center py-3 rounded-full font-semibold text-xl overflow-clip outline-none ${
             selected ? "bg-yellow " : "bg-gray-700 text-white"
           }`}
         >
