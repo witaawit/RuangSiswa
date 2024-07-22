@@ -2,24 +2,98 @@ import React from "react";
 import { Button } from "../Button";
 import Image from "next/image";
 import { useState } from "react";
+import Dropdown from "../Dropdown/Dropdown";
+import Link from "next/link";
 
-type MenuType = "ruangBelajar" | "ruangLatihan";
+// type MenuType = "ruangBelajar" | "ruangLatihan";
+
+export interface MenuItem {
+  title: string;
+  route?: string;
+  children?: MenuItem[];
+}
+
+const menuItems: MenuItem[] = [
+  {
+    title: "Beranda",
+    route: "/",
+  },
+  {
+    title: "RuangBelajar",
+    children: [
+      {
+        title: "Sekolah Dasar (SD)",
+        route: "/",
+      },
+      {
+        title: "Sekolah Menengah Pertama (SMP)",
+        route: "/",
+      },
+      {
+        title: "Sekolah Menengah Atas (SMA)",
+        route: "/ruangBelajar",
+        children: [
+          {
+            title: "SAINTEK",
+            route: "/",
+          },
+          {
+            title: "SOSHUM",
+            route: "/",
+          },
+          {
+            title: "Bahasa",
+            route: "/",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "RuangLatihan",
+    children: [
+      {
+        title: "Sekolah Dasar (SD)",
+        route: "/",
+      },
+      {
+        title: "Sekolah Menengah Pertama (SMP)",
+        route: "/",
+      },
+      {
+        title: "Sekolah Menengah Atas (SMA)",
+        route: "/",
+        children: [
+          {
+            title: "SAINTEK",
+            route: "/",
+          },
+          {
+            title: "SOSHUM",
+            route: "/",
+          },
+          {
+            title: "Bahasa",
+            route: "/",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "RuangUjian",
+    route: "/",
+  },
+  {
+    title: "Tentang Kami",
+    route: "/",
+  },
+];
 
 export const Navbar = () => {
-  const [dropdownOpen, setDropdownOpen] = useState<{ [key in MenuType]: boolean }>({
-    ruangBelajar: false,
-    ruangLatihan: false,
-  });
-
-  const toggleDropdown = (menu: MenuType) => {
-    setDropdownOpen((prevState) => ({
-      ...prevState,
-      [menu]: !prevState[menu],
-    }));
-  };
 
   return (
-    <nav className="z-10 fixed bg-white flex flex-row justify-between w-full items-center py-2 lg:px-5 md:px-12 sm:px-12 shadow-[0px_1px_4px_0px_#0000001d]">
+    <nav className="z-10 fixed top-0 bg-white flex flex-row justify-between w-full items-center py-2 lg:px-5 md:px-12 sm:px-12 shadow-[0px_1px_4px_0px_#0000001d]">
       <a className="">
         <Image
           src="/images/Logo.svg"
@@ -28,7 +102,56 @@ export const Navbar = () => {
           height={400}
         />
       </a>
-      <ul className="flex flex-row gap-6">
+      <div className="flex gap-8 items-center text-white">
+        {menuItems.map((item) => {
+          return item.hasOwnProperty("children") ? (
+            <Dropdown item={item} />
+          ) : (
+            <Link className="text-black" href={item?.route || ""}>
+              {item.title}
+            </Link>
+          );
+        })}
+      </div>
+      {/* <ul className=" relative flex flex-row gap-6"> */}
+        {/* <li className="flex items-center gap-1 flex-row">
+          {" "}
+          <a href="/" className="alist">
+            Beranda
+          </a>
+        </li>
+        <li className="flex items-center gap-1 flex-row">
+          {" "}
+          <a
+            href="/"
+            className="alist"
+            onClick={(e) => {
+              e.preventDefault();
+              toggleDropdown(title.toLowerCase() as MenuType);
+            }}
+          >
+            {title}
+          </a>
+        </li>
+        <li className="flex items-center gap-1 flex-row">
+          {" "}
+          <a
+            href="/"
+            className="alist"
+            onClick={(e) => {
+              e.preventDefault();
+              toggleDropdown(title.toLowerCase() as MenuType);
+            }}
+          >
+            {title}
+          </a>
+        </li>
+        <li className="flex items-center gap-1 flex-row">
+          {" "}
+          <a href="/" className="alist">
+            {title}
+          </a>
+        </li> */}
         {/* {[
           ["Beranda", "/", ""],
           ["RuangBelajar", "", "/images/Arrow Dropdown1.svg"],
@@ -51,7 +174,7 @@ export const Navbar = () => {
             </a>
             {image && <Image src={image} alt="arrow" width={10} height={20} />}
             {title === "ruangbelajar" && dropdownOpen.ruangBelajar && (
-              <ul className="absolute top-0 left-0 mt-2 z-20 bg-black shadow-md">
+              <ul className="flex mt-2 z-20 bg-black shadow-md">
                 <li className="p-2">Belajar 1</li>
                 <li className="p-2">Belajar 2</li>
                 <li className="p-2">Belajar 3</li>
@@ -65,8 +188,8 @@ export const Navbar = () => {
               </ul>
             )}
           </li>
-        ))} */}
-      </ul>
+        ))}
+      </ul> */}
       {/* <ul className="flex flex-row gap-6">
         {[
           ["Beranda", "/", ""],
