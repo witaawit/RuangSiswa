@@ -16,9 +16,9 @@ export const getStaticPaths = (async () => {
         params: {
           name: 'next.js',
         },
-      }, // See the "paths" section below
+      }, 
     ],
-    fallback: true, // false or "blocking"
+    fallback: true, 
   }
 }) satisfies GetStaticPaths
  

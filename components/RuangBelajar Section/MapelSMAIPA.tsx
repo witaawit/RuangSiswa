@@ -1,6 +1,7 @@
 import { BreadCrumbSMIP } from "../BreadCrumb";
 import { DropSelmapel } from "../Dropdown Select";
 import { Searchbar } from "../Search Bar";
+import { CardList } from "../Card Mapel";
 
 const MapelSMAIPA = () => {
   return (
@@ -10,6 +11,7 @@ const MapelSMAIPA = () => {
         <DropSelmapel />
         <Searchbar />
       </div>
+      <CardList />
     </section>
   );
 };
