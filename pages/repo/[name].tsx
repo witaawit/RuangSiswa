@@ -30,8 +30,8 @@ export const getStaticProps = (async (context) => {
   repo: Repo
 }>
  
-export default function Page({
-  repo,
-}: InferGetStaticPropsType<typeof getStaticProps>) {
-  return repo.stargazers_count
-}
+// export default function Page({
+//   repo,
+// }: InferGetStaticPropsType<typeof getStaticProps>) {
+//   return repo.stargazers_count
+// }
